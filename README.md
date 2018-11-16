@@ -74,7 +74,8 @@ echo.
 timeout 1
 cls
 timeout 1
-exit```
+exit
+```
 
 HOW DOES IT WORK :
 
