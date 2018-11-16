@@ -85,11 +85,11 @@ HOW DOES IT WORK :
 
 3. You need to modify 3-text files
 
-         Set the IP-Address you want to connect to:
+   Set the IP-Address you want to connect to:
 
    3.1 1ip.txt---------------------------->Add your FTP address
 
-         Set the output path, Where to save the downloaded files ?:
+   Set the username and the password to login into the FTP-Server:
 
    3.2 1password.txt---------------------->Write your Password
 
