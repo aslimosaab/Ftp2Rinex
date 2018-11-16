@@ -2,10 +2,9 @@
 Download rinex files from trimble NetR9 FTP server for Windows<br/>
 Check http://kb.unavco.org/kb/article/trimble-netr9-resource-page-673.html for resources.
 
-    1ip.txt---------------------------------->Set Host/Ip adress
-    1output.txt------------------------------>Set Output path
-    1password.txt---------------------------->Set login Password
-    1username.txt---------------------------->Set login User
+    1ip.txt
+    1password.txt
+    1username.txt
     bash.exe
     COPYING
     cygasn1-8.dll
@@ -35,7 +34,7 @@ Check http://kb.unavco.org/kb/article/trimble-netr9-resource-page-673.html for r
     sign.txt
     sign2.txt
     ssh.exe
-    Start_HERE_v1.0.2.bat------------------------------------------------------------>Start batScript here.
+    Start_Batch_v1.0.2.bat
     wget.exe
     wget.exe.gdb
     wget.html
@@ -48,7 +47,6 @@ Exteral/EmptyFolder<br/>
 
 
 ```batch
-Start_HERE_v1.0.2.bat:
 @echo off
 cls
 echo.
@@ -59,7 +57,6 @@ echo.
 set /p user=<1username.txt
 set /p pass=<1password.txt
 set /p ftp=<1ip.txt
-set /p output=<1output.txt
 echo user:%user% pass:%pass% ftp:%ftp% output_path:%output%
 timeout 5
 lftp -u %user%,%pass% -e "cd Internal; ls * > log.txt; quit" %ftp%
@@ -71,15 +68,36 @@ for /f %%a in (log.txt) do (
     wget -nc --no-verbose --user %user% --password %pass% ftp://%ftp%/Internal/%%a/%%b -p /
     )
 )
-SET COPYCMD=/Y
-xcopy myPath %output% /e /i /y /s 
-timeout 1
 echo.
 type sign2.txt
 echo.
 timeout 1
 cls
 timeout 1
-exit
-```
-You can add the start_HERE_v1.0.2.bat to Windows-Task-Scheduler to auto download Rinex periodically.
+exit```
+
+HOW DOES IT WORK :
+
+1. Download the entire repository
+
+2. Extract the zip file
+
+3. You need to modify 3-text files
+
+         Set the IP-Address you want to connect to:
+
+   3.1 1ip.txt---------------------------->Add your FTP address
+
+         Set the output path, Where to save the downloaded files ?:
+
+   3.2 1password.txt---------------------->Write your Password
+
+   3.3 1username.txt---------------------->Write your Username
+
+4. Open the BAT file: Start_Batch_v1.0.2.bat (Double Click or Run in CMD)
+
+
+
+The Rinex files are downloaded to the same folder where you saved this repository.
+
+You can add the start_Batch_v1.0.2.bat to Windows-Task-Scheduler to auto download Rinex periodically.
