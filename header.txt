@@ -1,0 +1,5 @@
++---------------------------------------+
+|           FtpToRinex V1.0.2           |
+| Script will skip downloaded files     |
+| check 1*.txt to change parameters     |
++---------------------------------------+
